@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+{% block style %}
+#content {
+	margin: 0 auto;
+	width: 1000px;
+}
+h2,h3 {
+	text-align: center;
+}
+
+
+{% endblock %}
+{% block content %}
+	<h2> Command Execution </h2>
+	<p align="center"> Try to execute other commands </p>
+	<div class="container" style="width:300px">
+	      <form class="form-signin" action="" method="post">
+	        <h3 class="form-signin-heading">Ping for free</h3>     
+	        <input type="text" class="form-control" name="command" value= "{{ request.form.command }}">
+	        <input class="btn btn-lg btn-primary btn-block" style="margin-top:20px" type="submit" value="Login">
+	      </form>
+		  {% if error %}
+		   		<p class="error"><strong>Error:</strong> {{ error }}
+		  {% endif %}
+		  {% if result %}
+		  		{% for i in result %}
+		   		<p><strong> {{ i }} </strong> </p>
+				{% endfor %}
+		  {% endif %}
+	    </div>
+{% endblock %}

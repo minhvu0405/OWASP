@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% block style %}
+#content {
+	margin: 0 auto;
+	width: 1000px;
+}
+h2,h4 {
+	text-align: center;
+}
+{% endblock %}
+{% block content %}
+	<h2> Admin Configuration  </h2>
+	<h4 style="color:red;"> Congratulation! You found it! </h4>
+	<div class="container" style="width:300px">
+	      <form class="form-signin" action="" method="post">
+	        <input type="password" class="form-control" placeholder="New Password" name="newpassword">
+	        <input type="password" class="form-control" placeholder="Confirm Password" name="confirmedpassword">
+	        <input class="btn btn-lg btn-primary btn-block" style="margin-top:20px" type="submit" value="Save">
+	      </form>
+	</div>
+{% endblock %}

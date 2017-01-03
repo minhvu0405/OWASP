@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% block style %}
+#content {
+	margin: 0 auto;
+	width: 1000px;
+}
+h2,h4,p {
+	text-align: center;
+}
+{% endblock %}
+{% block content %}
+	<h2> SQL Injection </h2>
+	<div class="container" style="width:300px">
+	      <form class="form-signin" action="" method="post">
+			<h3 style="color:blue;"> Try to display all users </h3>
+	        <h2 class="form-signin-heading">User ID</h2>     
+	        <input type="text" class="form-control" name="id" value= "{{ request.form.id }}">
+	        <input class="btn btn-lg btn-primary btn-block" style="margin-top:20px" type="submit" value="Submit">
+	      </form>
+		  {% if error %}
+		   		<p class="error"><strong style="color:red;">Error:</strong> {{ error }} </p>
+		  {% endif %}
+		  {% if success %}
+		   		<p class="success"><strong style="color:blue;"> {{ success }} </strong> </p>
+				<p class="success"><strong style="color:blue;"> Your code is {{ code }} </strong> </p>
+		  {% endif %}
+		  {% if result %}
+		  		{% for i in result%}
+		   		<p><strong> {{ i }} </strong> </p>
+				{% endfor %}
+		  {% endif %}
+	    </div>
+{% endblock %}

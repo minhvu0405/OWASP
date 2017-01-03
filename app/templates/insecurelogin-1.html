@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+{% block style %}
+#content {
+	margin: 0 auto;
+	width: 1000px;
+}
+h2 {
+	text-align: center;
+}
+h4 {
+	text-align: center;
+}
+{% endblock %}
+{% block content %}
+	<h2> Insecure Login </h2>
+	<h4> Try to find the password </h4>
+	<div class="container" style="width:300px">
+	      <form class="form-signin" action="" method="post">
+	        <h3 class="form-signin-heading">What's the password?</h3>     
+	        <input type="text" class="form-control" name="password">
+	        <input class="btn btn-lg btn-primary btn-block" style="margin-top:20px" type="submit" value="Submit">
+	      </form>
+		  {% if error %}
+		   		<p class="error"><strong style="color:red;">Error:</strong> {{ error }} </p>
+		  {% endif %}
+		  {% if success %}
+		   		<p class="success"><strong style="color:blue;"> {{ success }} </strong> </p>
+		  {% endif %}
+	    </div>
+{% endblock %}
+

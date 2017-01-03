@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% block style %}
+#content {
+	margin: 0 auto;
+	width: 1000px;
+}
+h2,h4 {
+	text-align: center;
+}
+{% endblock %}
+{% block content %}
+	<h2> Welcome </h2>
+	<div class="container" style="width:300px">
+	      <form class="form-signin" action="" method="post">
+	        <h4>Please log in </h4>
+	        <input type="text" class="form-control"  placeholder="email" name="email">
+	        <input type="password" class="form-control" placeholder="Password" name="password">
+	        <input class="btn btn-lg btn-primary btn-block" style="margin-top:20px" type="submit" value="Submit">
+	      </form>
+		  {% if error %}
+		   		<p class="error"><strong style="color:red;">Error:</strong> {{ error }} </p>
+		  {% endif %}
+		  {% if success %}
+		   		<p class="success"><strong style="color:blue;"> {{ success }} </strong> </p>
+		  {% endif %}
+	    </div>
+{% endblock %}

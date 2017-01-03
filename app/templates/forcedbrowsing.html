@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% block style %}
+#content {
+	margin: 0 auto;
+	width: 1000px;
+}
+h2,h4 {
+	text-align: center;
+}
+{% endblock %}
+{% block content %}
+	<h2> Forced Browsing </h2>
+	<h4> Try to find the hidden configuration page! </h4>
+	<h4> The config URL is only available to the maintenance personnel. </h4>
+	<h4> The application does NOT check for horizontal privileges. </h4>
+	<div class="container" style="width:300px">
+	      <form class="form-signin" action="" method="post">
+	        <h4>Let's guess the path name of that page </h4>
+	        <input type="text" class="form-control"  placeholder="" name="name">
+	        <input class="btn btn-lg btn-primary btn-block" style="margin-top:20px" type="submit" value="Submit">
+	      </form>
+		  {% if error %}
+		   		<p class="error"><strong style="color:red;">Error:</strong> {{ error }} </p>
+		  {% endif %}
+		  {% if success %}
+		   		<p class="success"><strong style="color:blue;"> {{ success }} </strong> </p>
+				<p class="success"><strong style="color:blue;"> Your code is {{ code }} </strong> </p>
+		  {% endif %}
+{% endblock %}
+{% block script %}
+		  {% if info %}
+		   		// Hint : {{ info }}
+		  {% endif %}
+{% endblock%}

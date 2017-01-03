@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+{% block style %}
+#content {
+	margin: 0 auto;
+	width: 1000px;
+}
+h2 {
+	text-align: center;
+}
+
+{% endblock %}
+{% block content %}
+	<h2> XSS reflected </h2>
+	<div class="container" style="width:300px">
+	      <form class="form-signin" action="" method="post">
+			<p> Try to purchase the TV for less than the purchase price. </p> <br>
+	        <table class='table'>
+				<tbody>
+					<tr>
+						<th> Item </th>
+						<th> Price </th>
+						<th> Quantiy </th>
+						<th> Total </th>
+					</tr>
+					<tr> 
+						<th> HDTV 100 inch </th>
+						<th> 5000 </th>
+						<th><input type="text" name="quantity" value=" {{ quantity }} "> </th>
+						<th> {{ result }} </th>
+					</td>
+				</tbody>
+			</table>
+	        <input class="btn btn-lg btn-primary btn-block" style="margin-top:20px" type="submit" value="Purchase">
+	      	<input type="hidden" value="5000" name="price">
+		  </form>
+		  {% if error %}
+		   		<p class="error"> {{ error }} </p>
+		  {% endif %}
+		  {% if success %}
+		   		<p class="success"><strong> {{ success }} </strong> </p>
+		  {% endif %}
+	    </div>
+{% endblock %}
+
